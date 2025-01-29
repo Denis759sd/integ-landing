@@ -48,6 +48,21 @@
         $(".navbar-collapse").collapse('hide');
     });
 
+    let lastScrollTop = 0;
+
+    $(window).scroll(function() {
+        let scrollTop = $(this).scrollTop();
+
+        if (scrollTop > lastScrollTop && scrollTop > $('.navbar').height()) {
+            $('.navbar').addClass('navbar-hidden'); // Скрыть навбар
+        } else {
+            $('.navbar').removeClass('navbar-hidden'); // Показать навбар
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+
 
     /* Image Slider - Swiper */
     var imageSlider = new Swiper('.image-slider', {
@@ -398,3 +413,4 @@
 	});
 
 })(jQuery);
+

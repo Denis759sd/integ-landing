@@ -655,39 +655,67 @@ input[type='checkbox'] {
 	transition: all 0.2s;
 }
 
-.navbar-custom .container {
+.navbar-custom .container a{
 	max-width: 87.5rem;
+	text-decoration: none;
 }
 
-.navbar-custom .navbar-brand.logo-image img {
-    width: 5rem;
-	height: 4.4375rem;
+.navbar-custom .navbar-brand {
+	display: flex;
+	flex-direction: column; /* Выстраиваем логотип и текст по вертикали */
+	align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.navbar-custom .navbar-brand .logo-image {
+	width: 5rem;
+	height: auto;
+	margin-right: 1rem;
 }
 
 .navbar-custom .navbar-brand .logo-text {
 	font: 700 2rem/1.5rem "Open Sans", sans-serif;
-	color: #fff;;
-	text-decoration: none;
-}
-
-.navbar-custom .navbar-nav {
-	margin-top: 0.75rem;
-	margin-bottom: 0.5rem;
-}
-
-.navbar-custom .nav-item .nav-link {
-	padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-	color: #f7f5f5;
-	opacity: 0.8;
-	text-decoration: none;
-	transition: all 0.2s ease;
-}
-
-.navbar-custom .nav-item .nav-link:hover,
-.navbar-custom .nav-item .nav-link.active {
 	color: #fff;
-	opacity: 1;
+	text-decoration: none;
+	margin-bottom: 0;
 }
+
+.navbar-custom {
+	transition: top 0.3s;
+}
+
+.navbar-hidden {
+	top: -100px;
+}
+
+@media (max-width: 991px) {
+	.navbar-custom .navbar-brand .logo-text {
+		font-size: 1.5rem;
+	}
+	.navbar-custom .navbar-brand .logo-image {
+		width: 4rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar-custom .navbar-brand .logo-text {
+		font-size: 1rem;
+	}
+	.navbar-custom .navbar-brand .logo-image {
+		width: 3rem;
+	}
+
+	.navbar-custom .navbar-toggler {
+		display: block;
+	}
+}
+
+@media (min-width: 769px) {
+	.navbar-custom .navbar-brand {
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
 
 /* Dropdown Menu */
 .navbar-custom .dropdown:hover > .dropdown-menu {
@@ -758,6 +786,7 @@ input[type='checkbox'] {
 	border: none;
 	color: #fff;
 	font-size: 2rem;
+	margin-top: 10px;
 }
 
 .navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-times{
